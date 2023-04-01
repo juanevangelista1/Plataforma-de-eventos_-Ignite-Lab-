@@ -1,8 +1,8 @@
 import { gql, useQuery} from "@apollo/client"
-import { useEffect } from "react"
 import { client } from "./lib/apollo"
+import { Event } from "./pages/Event"
 
-// gql do apollo permite escrever queries e mutations usando a sintaxe Highlighter
+// gql do apollo permite escrever queries e mutations usando a sintaxe Highlighter.
 
 const GET_LESSONS_QUERY = gql`
   query {
@@ -26,17 +26,7 @@ export function App() {
   console.log(data)
   return (
     <>
-      <ul>
-        {
-          data?.lessons.map(
-            lesson => {
-             return <li>
-              {lesson.title}
-             </li> 
-            }
-          )
-        }
-      </ul>
+      <Event/>
     </>
   )
 }
