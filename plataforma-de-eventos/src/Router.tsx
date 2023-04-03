@@ -11,5 +11,3 @@ export function Router() {
     </Routes>
   );
 }
-
-// Element é a propriedade que mostra o elemento em tela quando o usuário está na rota indicada pelo path 
