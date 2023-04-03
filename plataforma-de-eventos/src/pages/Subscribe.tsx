@@ -10,7 +10,6 @@ export function Subscribe() {
   const [email, setEmail] = useState('');
 
   const [createSubscriber, { loading }] = useCreateSubscriberMutation()
-  // const [createSubscriber] = useMutation(CREATE_SUBSCRIBER_MUTATION)
 
   async function handleSubscribe(event: FormEvent) {
     event.preventDefault();
@@ -50,11 +49,12 @@ export function Subscribe() {
               onChange={event => setName(event.target.value)}
             />
             <input 
-              className="bg-gray-900 rounded px-5 h-14" 
+              className="bg-gray-900 rounded px-5 h-14"
               type="email" 
               placeholder="Digite seu e-mail" 
               onChange={event => setEmail(event.target.value)}
             />
+
             <button 
               type="submit"
               disabled={loading}
