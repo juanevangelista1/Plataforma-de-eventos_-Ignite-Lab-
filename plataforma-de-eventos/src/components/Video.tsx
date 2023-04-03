@@ -3,6 +3,7 @@ import { CaretRight, DiscordLogo, FileArrowDown, Lightning } from "phosphor-reac
 
 import '@vime/core/themes/default.css';
 import { useGetLessonBySlugQuery } from "../graphql/generated";
+import { Link } from "react-router-dom";
 
 interface VideoProps {
   lessonSlug: string;
@@ -17,8 +18,11 @@ export function Video(props: VideoProps) {
 
   if (!data || !data.lesson) {
     return (
-      <div className="flex-1">
-        <p>Carregando...</p>
+      <div className="flex-1">        
+        <div role="status" className="p-8 max-w-[1100px] mx-auto bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
+          <svg className="flex justify-center h-full w-full max-w-[1100px] max-h-[60vh] text-gray-200 dark:text-gray-600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 384 512"><path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z"/></svg>
+          <span className="sr-only">Carregando...</span>
+        </div>
       </div>
     )
   }
@@ -61,15 +65,18 @@ export function Video(props: VideoProps) {
           </div>
 
           <div className="flex flex-col gap-4">
-            <a href="" className="p-4 text-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors">
+            <Link to={`https://discord.gg/rocketseat`} 
+              className="p-4 text-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors">
               <DiscordLogo size={24} />
               Comunidade do Discord
-            </a>
+            </Link>
 
-            <a href="" className="p-4 text-sm border border-blue-500 text-blue-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-blue-500 hover:text-gray-900 transition-colors">
+            <Link to={`https://quiz.rocketseat.com.br/quizzes/react?utm_source=youtube&utm_medium=organic&utm_campaign=lead&utm_term=quiz&utm_content=quiz-descricao-Content_newsReact`} 
+              className="p-4 text-sm border border-blue-500 text-blue-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-blue-500 hover:text-gray-900 transition-colors"
+            >
               <Lightning size={24} />
               Acesse o desafio
-            </a>
+            </Link>
           </div>
         </div>
 
